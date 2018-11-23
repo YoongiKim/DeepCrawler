@@ -1,4 +1,7 @@
 import argparse
+from Sampler import SAMPLER
+from Trainer import TRAINER
+from Crawler import CRAWLER
 
 # Argument setup
 parser = argparse.ArgumentParser()
@@ -6,14 +9,14 @@ parser.add_argument('--mode', type=str, default='sample', help='sample | train |
 args = parser.parse_args()
 
 # Start process
-if args.mode is 'sample':
+if args.mode == 'sample':
     # Start Sampler
-    print('Start Sampling')
-elif args.mode is 'train':
+    sampler = SAMPLER()
+elif args.mode == 'train':
     # Start Trainer
-    print('Start Training')
-elif args.mode is 'crawl':
+    trainer = TRAINER()
+elif args.mode == 'crawl':
     # Start Crawler
-    print('Start Crawling')
+    crawler = CRAWLER()
 else:
     print('Mode Error | Please set up --mode environment variable correctly.')
