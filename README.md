@@ -7,7 +7,7 @@ We do web crawling all the time to get the data that we need. However there is t
 We are at the stage of planning out smart ways to solve this problem. Please contact us if you have any idea.
 
 ### Primary Structure
-![](./img/idea.png =250x)
+![idea](./img/idea.png =250x)
 
 #### -Using Only LSTM
 1. Crawl as usual
