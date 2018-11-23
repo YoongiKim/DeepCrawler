@@ -7,7 +7,7 @@ We do web crawling all the time to get the data that we need. However there is t
 We are at the stage of planning out smart ways to solve this problem. Please contact us if you have any idea.
 
 ### Primary Structure
-![](./img/idea.png=250x)
+<img src="./img/idea.png" alt="idea" width="200"/>
 
 #### -Using Only LSTM
 1. Crawl as usual
@@ -16,4 +16,4 @@ We are at the stage of planning out smart ways to solve this problem. Please con
 #### -Using CNN + LSTM
 1. Crawl as usual
 2. Using CNN find the most likely region
-3. Go through HTML source code in the region detected form #2. Use LSTM to get the most useful phrase.
+3. Go through HTML source code in the region detected from #2. Use LSTM to get the most useful phrase.
