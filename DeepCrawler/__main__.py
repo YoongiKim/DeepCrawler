@@ -1,7 +1,7 @@
 import argparse
-from Sampler import SAMPLER
-from Trainer import TRAINER
-from AutoCrawler import AUTOCRAWLER
+from DeepCrawler.Sampler import SAMPLER
+from DeepCrawler.Trainer import TRAINER
+from DeepCrawler.AutoCrawler import AUTOCRAWLER
 
 # Argument setup
 parser = argparse.ArgumentParser()
