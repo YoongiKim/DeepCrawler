@@ -12,9 +12,6 @@ class CRAWLER():
         self.query = query # list of query to search
         self.n_data = n_data # number of datasets(pages) to get
         self.n_thread = n_thread # number of threads
-
-        # Platform validation check
-        assert self.platformValidity_check(self.platform), 'Platform list contains invalid platform names'
                 
         # Store crawled data (number of platform,number of data for each platform)
         self.result = {}
@@ -34,17 +31,3 @@ class CRAWLER():
         pool.map_async(self.download,[1,2,3,4])
         pool.close()
         pool.join()
-
-    # Return if platform list is valid or not
-    def platformValidity_check(self,platform):
-        validity = True
-        for p in platform:
-            for v in self.validplatforms:
-                temp = False
-                if p == v:
-                    temp = True
-                    break
-            if temp == False:
-                validity = False
-                break
-        return validity
