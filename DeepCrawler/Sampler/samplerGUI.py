@@ -3,16 +3,13 @@ from tkinter import Label,Button
 class SAMPLERGUI():
     def __init__(self, master):
         self.master = master
-        master.title("A simple GUI")
+        master.title("Sampler (DeepCrawler)")
+        master.geometry("1000x700")
+        master.resizable(0,0)
+        master.grid_columnconfigure(0, weight=1)
 
-        self.label = Label(master, text="This is our first GUI!")
-        self.label.pack()
-
-        self.greet_button = Button(master, text="Greet", command=self.greet)
-        self.greet_button.pack()
-
-        self.close_button = Button(master, text="Close", command=master.quit)
-        self.close_button.pack()
+        self.setup_button = Button(master, width=50,height=2,text="Setup", command=master.quit).grid(row=0,column=0, sticky='nw')
+        self.sample_button = Button(master, width=50,height=2,text="Sample", command=master.quit).grid(row=0,column=1, sticky='nw')
 
     def greet(self):
         print("Greetings!")
