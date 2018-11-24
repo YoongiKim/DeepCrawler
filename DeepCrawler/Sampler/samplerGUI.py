@@ -1,4 +1,5 @@
-from tkinter import Label,Button
+from tkinter import Label,Button,Frame
+import tkinter as tk
 
 class SAMPLERGUI():
     def __init__(self, master):
@@ -6,12 +7,19 @@ class SAMPLERGUI():
         master.title("Sampler (DeepCrawler)")
         master.geometry("1000x700")
         master.resizable(0,0)
-        master.grid_columnconfigure(0, weight=1)
 
-        self.setup_button = Button(master, width=50,height=2,text="Setup", command=master.quit)
-        self.setup_button.grid(row=0,column=0, sticky='nw')
-        self.sample_button = Button(master, width=50,height=2,text="Sample", command=master.quit)
-        self.sample_button.grid(row=0,column=1, sticky='nw')
+        # Initialize Frame
+        buttonFrame = Frame(self.master,side='top').pack()
+        SetupFrame = Frame(self.master,side='bottom').pack()
+        SampleFrame = Frame(self.master,side='bottom').pack()
 
-    def greet(self):
-        print("Greetings!")
+        # Button Frame
+        self.setup_button = Button(buttonFrame, width=50,height=2,text="Setup", command=master.quit)
+        self.setup_button.pack(side = 'left')
+        self.sample_button = Button(buttonFrame, width=50,height=2,text="Sample", command=master.quit)
+        self.sample_button.pack(side = 'right')
+
+        # Setup Frame
+        
+
+        # Sample Frame
