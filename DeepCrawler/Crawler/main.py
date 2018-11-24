@@ -1,3 +1,5 @@
+from Crawler import collectData
+
 class CRAWLER():
     def __init__(self,platform,query,num):
         # Constant Variables
@@ -9,7 +11,7 @@ class CRAWLER():
         self.num = num # number of datasets(pages) to get
 
         # Platform validation check
-        assert self.platformValidation_check(self.platform), 'Platform list contains invalid platform names'
+        assert self.platformValidity_check(self.platform), 'Platform list contains invalid platform names'
 
     # Main Run Method to activate crawler. Call this to Start Crawling
     def run(self):
@@ -22,7 +24,7 @@ class CRAWLER():
         print('Query:{}||Platform:{}||NumberofData:{}'.format(self.query,self.platform,self.num))
 
     # Return if platform list is valid or not
-    def platformValidation_check(self,platform):
+    def platformValidity_check(self,platform):
         validity = True
         for p in platform:
             for v in self.validplatforms:
