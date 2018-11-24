@@ -20,6 +20,8 @@ class SAMPLERGUI():
         self.sample_button.pack(side = 'right')
 
         # Setup Frame
+        # TODO Make Setup Frame and make crawler calling method
         
 
         # Sample Frame
+        # TODO Make Sample Frame and make sampling and saving method
