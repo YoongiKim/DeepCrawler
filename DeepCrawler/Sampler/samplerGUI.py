@@ -9,9 +9,9 @@ class SAMPLERGUI():
         master.resizable(0,0)
 
         # Initialize Frame
-        buttonFrame = Frame(self.master,side='top').pack()
-        SetupFrame = Frame(self.master,side='bottom').pack()
-        SampleFrame = Frame(self.master,side='bottom').pack()
+        buttonFrame = Frame(self.master).pack(side='top')
+        SetupFrame = Frame(self.master).pack(side='bottom')
+        SampleFrame = Frame(self.master).pack(side='bottom')
 
         # Button Frame
         self.setup_button = Button(buttonFrame, width=50,height=2,text="Setup", command=master.quit)
