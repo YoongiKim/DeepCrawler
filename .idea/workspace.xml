@@ -3,9 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="9dd0374e-ae47-41e7-af6f-9aa74a839dc6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepCrawler/Sampler/samplerGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepCrawler/Sampler/samplerGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepCrawler/Crawler/get_html.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepCrawler/Crawler/get_html.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepCrawler/chromedriver/chromedriver_linux" beforeDir="false" afterPath="$PROJECT_DIR$/DeepCrawler/Crawler/chromedriver/chromedriver_linux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepCrawler/chromedriver/chromedriver_linux64_v2.44.zip" beforeDir="false" afterPath="$PROJECT_DIR$/DeepCrawler/Crawler/chromedriver/chromedriver_linux64_v2.44.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepCrawler/chromedriver/chromedriver_mac" beforeDir="false" afterPath="$PROJECT_DIR$/DeepCrawler/Crawler/chromedriver/chromedriver_mac" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepCrawler/chromedriver/chromedriver_mac64_v2.44.zip" beforeDir="false" afterPath="$PROJECT_DIR$/DeepCrawler/Crawler/chromedriver/chromedriver_mac64_v2.44.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepCrawler/chromedriver/chromedriver_win.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DeepCrawler/Crawler/chromedriver/chromedriver_win.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepCrawler/chromedriver/chromedriver_win32_v2.44.zip" beforeDir="false" afterPath="$PROJECT_DIR$/DeepCrawler/Crawler/chromedriver/chromedriver_win32_v2.44.zip" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,49 +20,110 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/DeepCrawler$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1543045069963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepCrawler" />
-    <SUITE FILE_PATH="coverage/DeepCrawler$get_html.coverage" NAME="get_html Coverage Results" MODIFIED="1543043813729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepCrawler/Crawler" />
+    <SUITE FILE_PATH="coverage/DeepCrawler$get_html.coverage" NAME="get_html Coverage Results" MODIFIED="1543052001672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepCrawler/Crawler" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.24285714">
-      <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/main.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#0#27#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/__init__.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="25" selection-start-column="25" selection-end-column="25" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/samplerGUI.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="61" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="collectData.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/collectData.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__main__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeepCrawler/__main__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2184">
+              <caret line="104" selection-start-line="104" selection-end-line="104" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_html.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/get_html.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-604">
+              <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeepCrawler/Trainer/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeepCrawler/Trainer/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="25" selection-start-column="25" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -76,24 +144,26 @@
         <option value="$PROJECT_DIR$/DeepCrawler/Crawler/platforms.py" />
         <option value="$PROJECT_DIR$/DeepCrawler/Sampler/sampler.py" />
         <option value="$PROJECT_DIR$/DeepCrawler/Crawler/__init__.py" />
+        <option value="$PROJECT_DIR$/DeepCrawler/Sampler/__init__.py" />
         <option value="$PROJECT_DIR$/DeepCrawler/Trainer/trainer.py" />
         <option value="$PROJECT_DIR$/DeepCrawler/Trainer/__init__.py" />
+        <option value="$PROJECT_DIR$/DeepCrawler/Sampler/main.py" />
         <option value="$PROJECT_DIR$/DeepCrawler/__main__.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/DeepCrawler/Crawler/main.py" />
         <option value="$PROJECT_DIR$/DeepCrawler/Crawler/get_html.py" />
-        <option value="$PROJECT_DIR$/DeepCrawler/Sampler/__init__.py" />
-        <option value="$PROJECT_DIR$/DeepCrawler/Sampler/main.py" />
-        <option value="$PROJECT_DIR$/DeepCrawler/Sampler/samplerGUI.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1136" />
-    <option name="width" value="725" />
-    <option name="height" value="1087" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1870" />
+    <option name="height" value="1096" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -124,6 +194,17 @@
               <item name="DeepCrawler" type="462c0819:PsiDirectoryNode" />
               <item name="Sampler" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DeepCrawler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeepCrawler" type="462c0819:PsiDirectoryNode" />
+              <item name="DeepCrawler" type="462c0819:PsiDirectoryNode" />
+              <item name="Trainer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeepCrawler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeepCrawler" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -135,7 +216,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="vcs.Perforce" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="H:\Workspaces\DeepCrawler\DeepCrawler\Crawler" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -149,7 +235,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.get_html">
     <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DeepCrawler" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -194,37 +280,14 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="DeepCrawler" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DeepCrawler/Sampler" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DeepCrawler/Sampler/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.get_html" />
       <item itemvalue="Python.__main__" />
-      <item itemvalue="Python.main" />
+      <item itemvalue="Python.get_html" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.__main__" />
         <item itemvalue="Python.get_html" />
+        <item itemvalue="Python.__main__" />
       </list>
     </recent_temporary>
   </component>
@@ -242,30 +305,153 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="22" width="1281" height="778" extended-state="6" />
+    <frame x="-8" y="-8" width="1870" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11111111" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32798833" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12154696" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32944608" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32798833" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35005224" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.3291536" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3719958" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39916405" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/collectData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2184">
+          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/get_html.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="44" column="36" lean-forward="true" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Trainer/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Trainer/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/AutoCrawler/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Trainer/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Trainer/main.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/AutoCrawler/main.py" />
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DeepCrawler/__init__.py" />
     <entry file="file://$PROJECT_DIR$/img/idea.png">
       <provider selected="true" editor-type-id="images" />
@@ -273,7 +459,13 @@
     <entry file="file://$PROJECT_DIR$/img/idea2.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://C:/Program Files/Python36/Lib/runpy.py" />
+    <entry file="file://C:/Program Files/Python36/Lib/runpy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="192" selection-start-line="192" selection-end-line="192" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DeepCrawler/AutoCrawler/__init__.py" />
     <entry file="file://$PROJECT_DIR$/DeepCrawler/AutoCrawler/main.py" />
     <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/platforms.py">
@@ -290,17 +482,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/__init__.py">
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/collectData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        <state relative-caret-position="42">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
@@ -311,72 +496,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+        <state relative-caret-position="2184">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DeepCrawler/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="126">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/get_html.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        <state relative-caret-position="294">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/__init__.py">
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        <state relative-caret-position="21">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/main.py">
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/collectData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        <state relative-caret-position="84">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepCrawler/Crawler/get_html.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-604">
+          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DeepCrawler/Sampler/samplerGUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="61" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
         </state>
       </provider>
     </entry>
