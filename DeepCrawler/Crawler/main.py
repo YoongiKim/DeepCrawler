@@ -1,4 +1,4 @@
-from Crawler import collectData
+from . import collectData
 from multiprocessing import Pool
 
 class CRAWLER():
