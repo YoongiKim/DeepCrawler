@@ -1,11 +1,12 @@
 from . import collectData
 from multiprocessing import Pool
+from .platforms import Platforms
 
 class CRAWLER():
     def __init__(self,platform,query,n_data,n_thread=4):
         # Constant Variables
         # TODO Change this when adding platform
-        self.validplatforms = ['NaverBlog','Google']
+        self.validplatforms = [Platforms.GOOGLE, Platforms.NAVER_BLOG]
         # Setup Variables
         self.platform = platform # list of platforms
         self.query = query # list of query to search
