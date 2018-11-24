@@ -1,7 +1,6 @@
 import argparse
-from DeepCrawler.Sampler import SAMPLER
-from DeepCrawler.Trainer import TRAINER
-from DeepCrawler.AutoCrawler import AUTOCRAWLER
+from Sampler import SAMPLER
+from Trainer import TRAINER
 
 # Argument setup
 parser = argparse.ArgumentParser()
@@ -17,6 +16,7 @@ elif args.mode == 'train':
     trainer = TRAINER()
 elif args.mode == 'autocrawl':
     # Start Crawler
-    autocrawler = AUTOCRAWLER()
+    # autocrawler = AUTOCRAWLER()
+    pass
 else:
     print('Mode Error | Please set up --mode environment variable correctly.')

@@ -1,4 +1,4 @@
-from DeepCrawler.Crawler import CRAWLER
+from Crawler import CRAWLER
 
 class SAMPLER():
     def __init__(self):
