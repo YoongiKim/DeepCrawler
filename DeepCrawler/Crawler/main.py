@@ -11,6 +11,7 @@ class CRAWLER():
         # Platform validation check
         assert self.platformValidation_check(self.platform), 'Platform list contains invalid platform names'
 
+    # Main Run Method to activate crawler. Call this to Start Crawling
     def run(self):
         # Store crawled data (number of platform,number of data for each platform)
         result = {}
@@ -20,6 +21,7 @@ class CRAWLER():
         # Start Crawling
         print('Query:{}||Platform:{}||NumberofData:{}'.format(self.query,self.platform,self.num))
 
+    # Return if platform list is valid or not
     def platformValidation_check(self,platform):
         validity = True
         for p in platform:
