@@ -7,7 +7,7 @@ We do web crawling all the time to get the data that we need. However there is t
 We are at the stage of planning out smart ways to solve this problem. Please contact us if you have any idea.
 
 ### Primary Structure
-<img src="./img/idea.png" alt="idea" width="500"/>
+<img src="./img/idea2.png" alt="idea" width="500"/>
 
 #### -Using Only LSTM
 1. Crawl as usual
