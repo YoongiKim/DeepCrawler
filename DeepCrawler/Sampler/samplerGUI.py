@@ -5,17 +5,21 @@ class SAMPLERGUI(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
 
+        self.title("DeepCrawler (Training Set Sampler)")
+        self.geometry("1000x500")
+        #self.resizable(False, False)
+
         # Menu Frame Configuration
-        menuFrame = tk.Frame(self)
-        menuFrame.pack(side="top",fill="both", expand=True)
+        menuFrame = tk.Frame(self,height=2)
+        menuFrame.pack(side="top",fill="both", expand=False)
         menuFrame.grid_rowconfigure(0, weight=1)
         menuFrame.grid_columnconfigure(0, weight=1)
 
-        settingBtn = Button(menuFrame, text='Settings', command=lambda: print('settings'), padx=10, pady=5)
-        settingBtn.pack(pady=5, padx=5, side='left', expand=True, fill="both")
+        settingBtn = Button(menuFrame, text='Settings', command=lambda: print('settings'), width=50, height=2, padx=10, pady=5)
+        settingBtn.pack(pady=5, padx=5, side='left', expand=True, fill="x")
 
-        sampleBtn = Button(menuFrame, text='Sampler', command=lambda: print('sampler'), padx=10, pady=5)
-        sampleBtn.pack(pady=5, padx=5, side='left', expand=True, fill="both")
+        sampleBtn = Button(menuFrame, text='Sampler', command=lambda: print('sampler'), width=50, height=2, padx=10, pady=5)
+        sampleBtn.pack(pady=5, padx=5, side='left', expand=True, fill="x")
 
         # Main Frame Configuration
         mainFrame = tk.Frame(self,highlightbackground="black", highlightcolor="black", highlightthickness=2)
@@ -39,13 +43,13 @@ class SAMPLERGUI(tk.Tk):
         wanted_frame.tkraise()
 
 class SettingFrame(tk.Frame):
-    def __init__(self,parent,controller):
+    def __init__(self, parent, controller):
         tk.Frame.__init__(self,parent)
         label = tk.Label(self, text="Start Page")
         label.pack(pady=10, padx=10)
 
 class SampleFrame(tk.Frame):
-    def __init__(self,parent,controller):
+    def __init__(self, parent, controller):
         tk.Frame.__init__(self,parent)
         label = tk.Label(self, text="Start Page")
         label.pack(pady=10, padx=10)
