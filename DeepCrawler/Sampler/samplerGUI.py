@@ -1,29 +1,39 @@
 from tkinter import Label,Button,Frame
 import tkinter as tk
 
-class SAMPLERGUI():
-    def __init__(self, master):
-        self.master = master
-        master.title("Sampler (DeepCrawler)")
-        master.resizable(0,0)
+class SAMPLERGUI(tk.Tk):
+    def __init__(self, *args, **kwargs):
+        tk.Tk.__init__(self, *args, **kwargs)
 
-        # Initialize Frame
-        self.menuFrame = Frame(self.master)
-        self.menuFrame.pack(side='top')
-        self.SetupFrame = Frame(self.master)
-        self.SetupFrame.pack(side='bottom')
-        self.SampleFrame = Frame(self.master)
-        self.SampleFrame.pack(side='bottom')
+        # Main Frame Configuration
+        mainFrame = tk.Frame(self)
+        mainFrame.pack(side="top", fill="both", expand=True)
+        mainFrame.grid_rowconfigure(0, weight=1)
+        mainFrame.grid_columnconfigure(0, weight=1)
 
-        # Button Frame
-        self.setup_button = Button(self.menuFrame, width=50,height=2,text="Setup", command=self.master.quit)
-        self.setup_button.pack(side='left')
-        self.sample_button = Button(self.menuFrame, width=50,height=2,text="Sample", command=self.master.quit)
-        self.sample_button.pack(side='left')
+        # List of Frames
+        self.frames = {}
 
-        # Setup Frame
-        # TODO Make Setup Frame and make crawler calling method
+        # Setup Settings Frame
+        settingFrame = SettingFrame(mainFrame,self)
+        self.frames[SettingFrame] = settingFrame
+        settingFrame.grid(row=0, column=0, sticky="nsew")
 
+        # Show Settings Frame Initially
+        self.show_frame(SettingFrame)
 
-        # Sample Frame
-        # TODO Make Sample Frame and make sampling and saving method
+    def show_frame(self,frame):
+        wanted_frame = self.frames[frame]
+        wanted_frame.tkraise()
+
+class SettingFrame(tk.Frame):
+    def __init__(self,parent,controller):
+        tk.Frame.__init__(self,parent)
+        label = tk.Label(self, text="Start Page")
+        label.pack(pady=10, padx=10)
+
+class SampleFrame(tk.Frame):
+    def __init__(self,parent,controller):
+        tk.Frame.__init__(self,parent)
+        label = tk.Label(self, text="Start Page")
+        label.pack(pady=10, padx=10)
