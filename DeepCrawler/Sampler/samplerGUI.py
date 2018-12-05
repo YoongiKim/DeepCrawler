@@ -5,13 +5,25 @@ class SAMPLERGUI(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
 
+        # Menu Frame Configuration
+        menuFrame = tk.Frame(self)
+        menuFrame.pack(side="top",fill="both", expand=True)
+        menuFrame.grid_rowconfigure(0, weight=1)
+        menuFrame.grid_columnconfigure(0, weight=1)
+
+        settingBtn = Button(menuFrame, text='Settings', command=lambda: print('settings'), padx=10, pady=5)
+        settingBtn.pack(pady=5, padx=5, side='left', expand=True, fill="both")
+
+        sampleBtn = Button(menuFrame, text='Sampler', command=lambda: print('sampler'), padx=10, pady=5)
+        sampleBtn.pack(pady=5, padx=5, side='left', expand=True, fill="both")
+
         # Main Frame Configuration
-        mainFrame = tk.Frame(self)
+        mainFrame = tk.Frame(self,highlightbackground="black", highlightcolor="black", highlightthickness=2)
         mainFrame.pack(side="top", fill="both", expand=True)
         mainFrame.grid_rowconfigure(0, weight=1)
         mainFrame.grid_columnconfigure(0, weight=1)
 
-        # List of Frames
+        # List of subFrames of Main Frame
         self.frames = {}
 
         # Setup Settings Frame
