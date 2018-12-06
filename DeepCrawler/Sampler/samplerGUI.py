@@ -1,7 +1,6 @@
 from tkinter import Button,messagebox
 import tkinter as tk
 
-
 # Settings
 query = ""
 datanum = 0
