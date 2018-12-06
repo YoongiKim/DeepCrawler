@@ -31,7 +31,7 @@ class SAMPLERGUI(tk.Tk):
         menuFrame.grid_rowconfigure(0, weight=1)
         menuFrame.grid_columnconfigure(0, weight=1)
 
-        self.settingBtn = Button(menuFrame, text='Settings', highlightbackground="grey", highlightcolor="black", highlightthickness=2, command=lambda: self.show_frame(SettingFrame), width=50, height=2, padx=10, pady=5)
+        self.settingBtn = Button(menuFrame, text='Settings/Crawler', highlightbackground="grey", highlightcolor="black", highlightthickness=2, command=lambda: self.show_frame(SettingFrame), width=50, height=2, padx=10, pady=5)
         self.settingBtn.pack(pady=5, padx=5, side='left', expand=True, fill="x")
 
         self.sampleBtn = Button(menuFrame, text='Sampler', command=lambda: self.show_frame(SampleFrame), width=50, height=2, padx=10, pady=5)
@@ -92,7 +92,7 @@ class IndicatorFrame(tk.Frame):
 
         ## Start Button
         # Start Sampling Button
-        startBtn = tk.Button(self, text="Start Sampling", width=85, height=1, padx=10, pady=10,
+        startBtn = tk.Button(self, text="Start Crawling", width=85, height=1, padx=10, pady=10,
                               highlightbackground="grey", highlightcolor="black", highlightthickness=2,
                              command=lambda : self.startSampling(controller))
         startBtn.pack(side="top",expand=False,fill="both")
@@ -100,26 +100,25 @@ class IndicatorFrame(tk.Frame):
     def startSampling(self,controller):
         global query
         global datanum
-        errmsg = ""
+        errmsg = "Set"
         iserror = False
 
         # Check for invalid setting
         if query == "":
             iserror = True
-            errmsg += "\n - Please Set Query"
+            errmsg += "\n - Query"
         if datanum <= 0:
             iserror = True
-            errmsg += "\n - Please Set number as an integer bigger than 0"
+            errmsg += "\n - Number (integer bigger than 0)"
         if not self.isplatformset():
             iserror = True
-            errmsg += "\n - Please Set Platform"
+            errmsg += "\n - Platform"
 
         # Start Sampling if no error
         if not iserror:
             summary = "Query: {}\nDataNum: {}\nPlatform: {}".format(query,datanum,self.platformtoString())
-            continueMsg = tk.messagebox.askquestion('Sampling Warning', '{}\nAre you sure you want to start Sampling'.format(summary),icon='warning')
+            continueMsg = tk.messagebox.askquestion('Crawling Warning', '{}\nAre you sure you want to start Crawling'.format(summary),icon='warning')
             if continueMsg == 'yes':
-                controller.show_frame(SampleFrame)
                 controller.crawler.set(query,datanum,platform)
             else:
                 pass
