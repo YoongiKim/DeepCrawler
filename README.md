@@ -17,3 +17,15 @@ We are at the stage of planning out smart ways to solve this problem. Please con
 1. Crawl as usual
 2. Using CNN find the most likely region
 3. Go through HTML source code in the region detected from #2. Use LSTM to get the most useful phrase.
+
+## Tutorial
+Note that this is not the final version
+### Sampling
+#### # 1 ) Setting Up the Sampler
+1. run ``` python DeepCrawler --mode sample``` in project directory
+2. Sampler GUI App will show up as below
+<img src="./img/sampler_setting.png" alt="idea" width="500"/>
+3. Set up 'Query', 'Number of data you want to sample' and 'platform'
+4. Press 'Start Sampling' Button to start sampling
+#### # 2 ) Sampling using Sampler
+In Development
