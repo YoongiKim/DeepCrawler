@@ -64,10 +64,10 @@ class SettingFrame(tk.Frame):
         ## Setting Info Indicator
         # Query Info
         queryinfoLabel = tk.Label(self, text="Query : ", font="Helvetica 14 bold")
-        queryinfoLabel.grid(padx=10, pady=5, row=0, column=0, sticky="nsew")
+        queryinfoLabel.grid(padx=10, pady=(20,5), row=0, column=0, sticky="nsew")
 
         self.queryinfo = tk.Label(self, text="None", font="Helvetica 14")
-        self.queryinfo.grid(padx=10, pady=5, row=0, column=1, sticky="nsw")
+        self.queryinfo.grid(padx=10, pady=(20,5), row=0, column=1, sticky="nsw")
 
         # Data Number Info
         numinfoLabel = tk.Label(self, text="Wanted Data Number : ", font="Helvetica 14 bold")
@@ -84,18 +84,34 @@ class SettingFrame(tk.Frame):
         self.platforminfo.grid(padx=10, pady=5, row=2, column=1, sticky="nsw")
 
         ## Setting Menu Selector
+        ## Query Setting row
         # Query Label
         queryLabel = tk.Label(self, text="Enter Query", font='Helvetica 14')
-        queryLabel.grid(padx=10, pady=5, row=3, column=0, sticky="nsew")
+        queryLabel.grid(padx=10, pady=(50,5), row=3, column=0, sticky="nsew")
 
         # Query Text Field
-        self.queryField = tk.Entry(self,width=70)
+        self.queryField = tk.Entry(self, width=70)
         self.queryField.bind("<Return>", lambda event : self.setQuery())
-        self.queryField.grid(padx=10, pady=5, row=3, column=1, sticky="nsew")
+        self.queryField.grid(padx=10, pady=(50,5), row=3, column=1, sticky="nsew")
 
         # Query Button
         queryBtn = tk.Button(self, text="Set", width=12, command=self.setQuery)
-        queryBtn.grid(padx=5, pady=5, row=3, column=2, sticky="nsw")
+        queryBtn.grid(padx=5, pady=(50,5), row=3, column=2, sticky="nsw")
+
+        ## Data number Setting row
+        # Data Num Label
+        numLabel = tk.Label(self, text="Enter wanted Data Number", font='Helvetica 14')
+        numLabel.grid(padx=10, pady=5, row=4, column=0, sticky="nsew")
+
+        # Data Num Field
+        self.numField = tk.Entry(self, width = 70)
+        self.numField.bind("<Return>", lambda event : self.setNum())
+        self.numField.grid(padx=10, pady=5, row=4, column=1, sticky="nsew")
+
+        # Data Num Button
+        numBtn = tk.Button(self, text="Set", width=12, command=self.setNum)
+        numBtn.grid(padx=5, pady=5, row=4, column=2, sticky="nsw")
+
 
     def setQuery(self):
         # Get Query from Text Field
@@ -106,6 +122,16 @@ class SettingFrame(tk.Frame):
         else:
             query = temp
             self.queryinfo.config(text=query)
+
+    def setNum(self):
+        # Get Number from Text Field
+        temp = self.numField.get()
+        self.numField.delete(0,'end')
+        if temp.isdigit() and int(float(temp))>>0:
+            datanum = int(float(temp))
+            self.numinfo.config(text=datanum)
+        else:
+            messagebox.showwarning("Data Number Warning","Please Enter Integer bigger than 0")
 
 
 class SampleFrame(tk.Frame):
