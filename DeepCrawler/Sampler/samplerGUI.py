@@ -1,5 +1,9 @@
 from tkinter import Button,messagebox
 import tkinter as tk
+import sys, os
+sys.path.append(os.path.abspath(os.path.join('..', 'Crawler')))
+from Crawler import CRAWLER
+
 
 # Settings
 query = ""
@@ -13,6 +17,10 @@ class SAMPLERGUI(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
 
+        # Initialize crawler
+        self.crawler = CRAWLER()
+
+        # Main Configuration
         self.title("DeepCrawler (Training Set Sampler)")
         self.geometry("1000x600")
         self.resizable(False, False)
@@ -112,7 +120,7 @@ class IndicatorFrame(tk.Frame):
             continueMsg = tk.messagebox.askquestion('Sampling Warning', '{}\nAre you sure you want to start Sampling'.format(summary),icon='warning')
             if continueMsg == 'yes':
                 controller.show_frame(SampleFrame)
-                # TODO Start Sampling
+                controller.crawler.set(query,datanum,platform)
             else:
                 pass
         else:

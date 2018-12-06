@@ -3,20 +3,25 @@ from multiprocessing import Pool
 from .platforms import Platforms
 
 class CRAWLER():
-    def __init__(self,platform,query,n_data,n_thread=4):
+    def __init__(self, n_thread=4):
         # Constant Variables
         # TODO Change this when adding platform
         self.validplatforms = [Platforms.GOOGLE, Platforms.NAVER_BLOG]
         # Setup Variables
-        self.platform = platform # list of platforms
-        self.query = query # list of query to search
-        self.n_data = n_data # number of datasets(pages) to get
+        self.platform = {} # list of platforms
+        self.query = "" # list of query to search
+        self.n_data = 0 # number of datasets(pages) to get
         self.n_thread = n_thread # number of threads
                 
         # Store crawled data (number of platform,number of data for each platform)
         self.result = {}
         for p in self.platform:
             self.result[p] = []
+
+    def set(self,query,n_data,platform):
+        self.platform = platform  # list of platforms
+        self.query = query  # list of query to search
+        self.n_data = n_data  # number of datasets(pages) to get
 
     def download(self,task):
         # TODO download process
