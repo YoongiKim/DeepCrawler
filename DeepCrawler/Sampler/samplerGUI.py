@@ -61,57 +61,77 @@ class SAMPLERGUI(tk.Tk):
 class SettingFrame(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self,parent)
-        ## Setting Info Indicator
+
+        ## Setting Info Indicator Frame
+        indicatorFrame = IndicatorFrame(self,controller)
+        indicatorFrame.config(highlightbackground="black", highlightcolor="black", highlightthickness=2)
+        indicatorFrame.pack(pady=5,padx=5, side="top",expand=False, fill="both")
+
+        ## Setting Menu Selector Frame
+        setterFrame = SetterFrame(self,controller,indicatorFrame)
+        setterFrame.pack(pady=5,padx=5, side="top",expand=True, fill="both")
+
+class IndicatorFrame(tk.Frame):
+    def __init__(self,parent,controller):
+        tk.Frame.__init__(self,parent)
         # Query Info
         queryinfoLabel = tk.Label(self, text="Query : ", font="Helvetica 14 bold")
-        queryinfoLabel.grid(padx=10, pady=(20,5), row=0, column=0, sticky="nsew")
+        queryinfoLabel.grid(padx=10, pady=(20, 5), row=0, column=0, sticky="nse")
 
         self.queryinfo = tk.Label(self, text="None", font="Helvetica 14")
-        self.queryinfo.grid(padx=10, pady=(20,5), row=0, column=1, sticky="nsw")
+        self.queryinfo.grid(padx=10, pady=(20, 5), row=0, column=1, sticky="nsw")
 
         # Data Number Info
         numinfoLabel = tk.Label(self, text="Wanted Data Number : ", font="Helvetica 14 bold")
-        numinfoLabel.grid(padx=10, pady=5, row=1, column=0, sticky="nsew")
+        numinfoLabel.grid(padx=10, pady=5, row=1, column=0, sticky="nse")
 
         self.numinfo = tk.Label(self, text="0", font="Helvetica 14")
         self.numinfo.grid(padx=10, pady=5, row=1, column=1, sticky="nsw")
 
         # Platform Info
         platforminfoLabel = tk.Label(self, text="Platform : ", font="Helvetica 14 bold")
-        platforminfoLabel.grid(padx=10, pady=5, row=2, column=0, sticky="nsew")
+        platforminfoLabel.grid(padx=10, pady=(5,20), row=2, column=0, sticky="nse")
 
         self.platforminfo = tk.Label(self, text="None", font="Helvetica 14")
-        self.platforminfo.grid(padx=10, pady=5, row=2, column=1, sticky="nsw")
+        self.platforminfo.grid(padx=10, pady=(5,20), row=2, column=1, sticky="nsw")
 
-        ## Setting Menu Selector
+class SetterFrame(tk.Frame):
+    def __init__(self,parent,controller,indicator):
+        tk.Frame.__init__(self, parent)
+        self.indicator = indicator
+
         ## Query Setting row
         # Query Label
         queryLabel = tk.Label(self, text="Enter Query", font='Helvetica 14')
-        queryLabel.grid(padx=10, pady=(50,5), row=3, column=0, sticky="nsew")
+        queryLabel.grid(padx=10, pady=(10, 5), row=3, column=0, sticky="nse")
 
         # Query Text Field
         self.queryField = tk.Entry(self, width=70)
-        self.queryField.bind("<Return>", lambda event : self.setQuery())
-        self.queryField.grid(padx=10, pady=(50,5), row=3, column=1, sticky="nsew")
+        self.queryField.bind("<Return>", lambda event: self.setQuery())
+        self.queryField.grid(padx=10, pady=(10, 5), row=3, column=1, sticky="nsew")
 
         # Query Button
         queryBtn = tk.Button(self, text="Set", width=12, command=self.setQuery)
-        queryBtn.grid(padx=5, pady=(50,5), row=3, column=2, sticky="nsw")
+        queryBtn.grid(padx=5, pady=(10, 5), row=3, column=2, sticky="nsw")
 
         ## Data number Setting row
         # Data Num Label
-        numLabel = tk.Label(self, text="Enter wanted Data Number", font='Helvetica 14')
-        numLabel.grid(padx=10, pady=5, row=4, column=0, sticky="nsew")
+        numLabel = tk.Label(self, text="Enter wanted Data Number", font="Helvetica 14")
+        numLabel.grid(padx=10, pady=5, row=4, column=0, sticky="nse")
 
         # Data Num Field
-        self.numField = tk.Entry(self, width = 70)
-        self.numField.bind("<Return>", lambda event : self.setNum())
+        self.numField = tk.Entry(self, width=70)
+        self.numField.bind("<Return>", lambda event: self.setNum())
         self.numField.grid(padx=10, pady=5, row=4, column=1, sticky="nsew")
 
         # Data Num Button
         numBtn = tk.Button(self, text="Set", width=12, command=self.setNum)
         numBtn.grid(padx=5, pady=5, row=4, column=2, sticky="nsw")
 
+        ## Platform Selection row
+        # Platform Selection Label
+        platformLabel = tk.Label(self, text="Select Platform", font="Helvetica 14")
+        platformLabel.grid(padx=10, pady=5, row=5, column=0, sticky="nse")
 
     def setQuery(self):
         # Get Query from Text Field
@@ -121,7 +141,7 @@ class SettingFrame(tk.Frame):
             messagebox.showwarning("Query Warning","None Query is not allowed. Please Set a Valid Query")
         else:
             query = temp
-            self.queryinfo.config(text=query)
+            self.indicator.queryinfo.config(text=query)
 
     def setNum(self):
         # Get Number from Text Field
@@ -129,10 +149,9 @@ class SettingFrame(tk.Frame):
         self.numField.delete(0,'end')
         if temp.isdigit() and int(float(temp))>>0:
             datanum = int(float(temp))
-            self.numinfo.config(text=datanum)
+            self.indicator.numinfo.config(text=datanum)
         else:
             messagebox.showwarning("Data Number Warning","Please Enter Integer bigger than 0")
-
 
 class SampleFrame(tk.Frame):
     def __init__(self, parent, controller):
