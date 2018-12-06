@@ -129,7 +129,7 @@ class IndicatorFrame(tk.Frame):
                 else:
                     pass
             else:
-                messagebox.showwarning("Sampling Warning", errmsg)
+                messagebox.showwarning("Crawling Warning", errmsg)
         else:
             # TODO Stop Crawling
             btn.config(text="Start Crawling")
