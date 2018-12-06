@@ -27,6 +27,5 @@ Note that this is not the final version
 <img src="./img/sampler_setting.png" alt="idea" width="700"/>
 3. Set up 'Query', 'Number of data you want to sample' and 'platform'
 4. Start Sampling by pressing 'Start Sampling' button
-
 #### # 2 ) Sampling using Sampler
 In Development
