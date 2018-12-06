@@ -4,7 +4,10 @@ import tkinter as tk
 
 query = ""
 datanum = 0
-platform = []
+platform = {
+    "Naver_Blog":False,
+    "Google":False
+}
 
 class SAMPLERGUI(tk.Tk):
     def __init__(self, *args, **kwargs):
