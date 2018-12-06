@@ -86,9 +86,39 @@ class IndicatorFrame(tk.Frame):
         ## Start Button
         # Start Sampling Button
         startBtn = tk.Button(self, text="Start Sampling", width=85, height=1, padx=10, pady=10,
-                              highlightbackground="grey", highlightcolor="black", highlightthickness=2)
+                              highlightbackground="grey", highlightcolor="black", highlightthickness=2,
+                             command=lambda : self.startSampling())
         startBtn.pack(side="top",expand=False,fill="both")
 
+    def startSampling(self):
+        errmsg = ""
+        iserror = False
+
+        # Check for invalid setting
+        if query == "":
+            iserror = True
+            errmsg += "\n - Please Set Query"
+        if datanum <= 0:
+            iserror = True
+            errmsg += "\n - Please Set number as an integer bigger than 0"
+        if not self.isplatformset():
+            iserror = True
+            errmsg += "\n - Please Set Platform"
+
+        # Start
+        if not iserror:
+            # TODO DO Sampling
+            pass
+        else:
+            messagebox.showwarning("Sampling Warning", errmsg)
+
+    def isplatformset(self):
+        isready = False
+        for key in platform.keys():
+            if platform[key] == 1:
+                isready = True
+                break
+        return isready
 
 class InfoFrame(tk.Frame):
     def __init__(self,parent,controller):
@@ -158,6 +188,7 @@ class SetterFrame(tk.Frame):
         platformSelectionFrame.grid(padx=10, pady=2, row=5, column=1, sticky="nswe")
 
     def setQuery(self):
+        global query
         # Get Query from Text Field
         temp = self.queryField.get()
         self.queryField.delete(0, 'end')
@@ -168,6 +199,7 @@ class SetterFrame(tk.Frame):
             self.indicator.queryinfo.config(text=query)
 
     def setNum(self):
+        global datanum
         # Get Number from Text Field
         temp = self.numField.get()
         self.numField.delete(0,'end')
