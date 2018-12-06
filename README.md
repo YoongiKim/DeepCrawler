@@ -25,7 +25,7 @@ Note that this is not the final version
 1. run ``` python DeepCrawler --mode sample``` in project directory
 2. Sampler GUI App will show up as below
 <img src="./img/sampler_setting.png" alt="idea" width="700"/>
-3. Set up 'Query', 'Number of data you want to sample' and 'platform'
+3. Set up 'Query', 'Number of data you want to sample' and 'platform'<br>
 4. Press 'Start Sampling'
 
 #### 2) Sampling using Sampler
