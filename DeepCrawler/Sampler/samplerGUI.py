@@ -80,7 +80,7 @@ class SettingFrame(tk.Frame):
         platforminfoLabel = tk.Label(self, text="Platform : ", font="Helvetica 14 bold")
         platforminfoLabel.grid(padx=10, pady=5, row=2, column=0, sticky="nsew")
 
-        self.platforminfo = tk.Label(self, text="0", font="Helvetica 14")
+        self.platforminfo = tk.Label(self, text="None", font="Helvetica 14")
         self.platforminfo.grid(padx=10, pady=5, row=2, column=1, sticky="nsw")
 
         ## Setting Menu Selector
