@@ -2,11 +2,12 @@ from tkinter import Button,messagebox
 import tkinter as tk
 
 
+# Settings
 query = ""
 datanum = 0
 platform = {
-    "Naver_Blog":False,
-    "Google":False
+    "Naver_Blog" : 0,
+    "Google" : 0
 }
 
 class SAMPLERGUI(tk.Tk):
@@ -136,6 +137,11 @@ class SetterFrame(tk.Frame):
         platformLabel = tk.Label(self, text="Select Platform", font="Helvetica 14")
         platformLabel.grid(padx=10, pady=5, row=5, column=0, sticky="nse")
 
+        # Platform Selection Frame
+        # Setup Sample Frame
+        platformSelectionFrame = PlatformSelectionFrame(self, controller, self.indicator)
+        platformSelectionFrame.grid(padx=10, pady=5, row=5, column=1, sticky="nswe")
+
     def setQuery(self):
         # Get Query from Text Field
         temp = self.queryField.get()
@@ -155,6 +161,43 @@ class SetterFrame(tk.Frame):
             self.indicator.numinfo.config(text=datanum)
         else:
             messagebox.showwarning("Data Number Warning","Please Enter Integer bigger than 0")
+
+class PlatformSelectionFrame(tk.Frame):
+    def __init__(self,parent, controller, indicator):
+        tk.Frame.__init__(self,parent)
+        self.indicator = indicator
+
+        platformScroll = tk.Scrollbar(self, orient="vertical")
+        text = tk.Text(self, width=60, height=10, yscrollcommand=platformScroll.set)
+        platformScroll.config(command=text.yview)
+        platformScroll.pack(side="right", fill="y")
+        text.pack(side="left", fill="both", expand=False)
+
+        self.checkboxVar = {}
+        # Make Tkinter Integer Variable for checkbox and insert
+        for key in platform.keys():
+            self.checkboxVar[key] = tk.IntVar()
+            tempcheckbox = tk.Checkbutton(self, text=key, variable=self.checkboxVar[key],
+                                          onvalue=1, offvalue=0, height=2, width=60,
+                                          command=lambda : self.setPlatform())
+            text.window_create("end", window=tempcheckbox)
+            text.insert("end","\n")
+
+    def setPlatform(self):
+        # Update platform
+        for key in self.checkboxVar.keys():
+            platform[key] = self.checkboxVar[key].get()
+
+        # Update indicator
+        var = ""
+        for key in platform.keys():
+            if platform[key] == 1:
+                var += key+" | "
+
+        if var == "":
+            self.indicator.platforminfo.config(text="None")
+        else:
+            self.indicator.platforminfo.config(text=var)
 
 class SampleFrame(tk.Frame):
     def __init__(self, parent, controller):
