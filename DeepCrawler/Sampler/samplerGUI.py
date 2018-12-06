@@ -19,6 +19,7 @@ class SAMPLERGUI(tk.Tk):
 
         # Initialize crawler
         self.crawler = CRAWLER()
+        self.iscrawling = False
 
         # Main Configuration
         self.title("DeepCrawler (Training Set Sampler)")
@@ -93,11 +94,11 @@ class IndicatorFrame(tk.Frame):
         ## Start Button
         # Start Sampling Button
         startBtn = tk.Button(self, text="Start Crawling", width=85, height=1, padx=10, pady=10,
-                              highlightbackground="grey", highlightcolor="black", highlightthickness=2,
-                             command=lambda : self.startSampling(controller))
+                              highlightbackground="grey", highlightcolor="black", highlightthickness=2, font="Helvetica 14 bold",
+                             command=lambda : self.startSampling(startBtn,controller))
         startBtn.pack(side="top",expand=False,fill="both")
 
-    def startSampling(self,controller):
+    def startSampling(self,btn,controller):
         global query
         global datanum
         errmsg = "Set"
@@ -114,16 +115,25 @@ class IndicatorFrame(tk.Frame):
             iserror = True
             errmsg += "\n - Platform"
 
-        # Start Sampling if no error
-        if not iserror:
-            summary = "Query: {}\nDataNum: {}\nPlatform: {}".format(query,datanum,self.platformtoString())
-            continueMsg = tk.messagebox.askquestion('Crawling Warning', '{}\nAre you sure you want to start Crawling'.format(summary),icon='warning')
-            if continueMsg == 'yes':
-                controller.crawler.set(query,datanum,platform)
+        # If Not Crawling
+        if not controller.iscrawling:
+            # Start Sampling if no error
+            if not iserror:
+                summary = "Query: {}\nDataNum: {}\nPlatform: {}".format(query,datanum,self.platformtoString())
+                continueMsg = tk.messagebox.askquestion('Crawling Warning', '{}\nAre you sure you want to start Crawling'.format(summary),icon='warning')
+                if continueMsg == 'yes':
+                    controller.crawler.set(query,datanum,platform)
+                    # TODO Start Crawling
+                    btn.config(text="Stop Crawling")
+                    controller.iscrawling = True
+                else:
+                    pass
             else:
-                pass
+                messagebox.showwarning("Sampling Warning", errmsg)
         else:
-            messagebox.showwarning("Sampling Warning", errmsg)
+            # TODO Stop Crawling
+            btn.config(text="Start Crawling")
+            controller.iscrawling = False
 
     def platformtoString(self):
         result = ""

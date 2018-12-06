@@ -28,7 +28,7 @@ class CRAWLER():
         print(task)
 
     # Main Run Method to activate crawler. Call this to Start Crawling
-    def run(self):
+    def start(self):
         print('Query:{}||Platform:{}||data_num:{}||thread_num:{}'.format(self.query,self.platform,self.n_data,self.n_thread))
         # Start Crawling with MultiProcess
         pool = Pool(self.n_thread)
@@ -36,3 +36,7 @@ class CRAWLER():
         pool.map_async(self.download,[1,2,3,4])
         pool.close()
         pool.join()
+
+    def stop(self):
+        # TODO Stop Crawling
+        pass
