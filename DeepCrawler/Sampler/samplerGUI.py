@@ -20,11 +20,11 @@ class SAMPLERGUI(tk.Tk):
         menuFrame.grid_rowconfigure(0, weight=1)
         menuFrame.grid_columnconfigure(0, weight=1)
 
-        settingBtn = Button(menuFrame, text='Settings', command=lambda: self.show_frame(SettingFrame), width=50, height=2, padx=10, pady=5)
-        settingBtn.pack(pady=5, padx=5, side='left', expand=True, fill="x")
+        self.settingBtn = Button(menuFrame, text='Settings', highlightbackground="grey", highlightcolor="black", highlightthickness=2, command=lambda: self.show_frame(SettingFrame), width=50, height=2, padx=10, pady=5)
+        self.settingBtn.pack(pady=5, padx=5, side='left', expand=True, fill="x")
 
-        sampleBtn = Button(menuFrame, text='Sampler', command=lambda: self.show_frame(SampleFrame), width=50, height=2, padx=10, pady=5)
-        sampleBtn.pack(pady=5, padx=5, side='left', expand=True, fill="x")
+        self.sampleBtn = Button(menuFrame, text='Sampler', command=lambda: self.show_frame(SampleFrame), width=50, height=2, padx=10, pady=5)
+        self.sampleBtn.pack(pady=5, padx=5, side='left', expand=True, fill="x")
 
         # Main Frame Configuration
         mainFrame = tk.Frame(self,highlightbackground="black", highlightcolor="black", highlightthickness=2)
@@ -50,6 +50,12 @@ class SAMPLERGUI(tk.Tk):
 
     def show_frame(self,frame):
         wanted_frame = self.frames[frame]
+        if frame == SettingFrame:
+            self.settingBtn.config(highlightbackground="grey", highlightcolor="black", highlightthickness=2)
+            self.sampleBtn.config(highlightbackground="white", highlightcolor="white", highlightthickness=2)
+        else:
+            self.sampleBtn.config(highlightbackground="grey", highlightcolor="black", highlightthickness=2)
+            self.settingBtn.config(highlightbackground="white", highlightcolor="white", highlightthickness=2)
         wanted_frame.tkraise()
 
 class SettingFrame(tk.Frame):
@@ -76,7 +82,6 @@ class SettingFrame(tk.Frame):
 
         self.platforminfo = tk.Label(self, text="0", font="Helvetica 14")
         self.platforminfo.grid(padx=10, pady=5, row=2, column=1, sticky="nsw")
-
 
         ## Setting Menu Selector
         # Query Label
