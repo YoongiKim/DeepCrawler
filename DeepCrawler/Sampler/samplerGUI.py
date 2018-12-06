@@ -1,12 +1,17 @@
-from tkinter import Label,Button,Frame
+from tkinter import Button,messagebox
 import tkinter as tk
+
+
+query = ""
+datanum = 0
+platform = []
 
 class SAMPLERGUI(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
 
         self.title("DeepCrawler (Training Set Sampler)")
-        self.geometry("1000x500")
+        self.geometry("1000x600")
         self.resizable(False, False)
 
         # Menu Frame Configuration
@@ -50,7 +55,7 @@ class SAMPLERGUI(tk.Tk):
 class SettingFrame(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self,parent)
-        ## Setting Info
+        ## Setting Info Indicator
         # Query Info
         queryinfoLabel = tk.Label(self, text="Query : ", font="Helvetica 14 bold")
         queryinfoLabel.grid(padx=10, pady=5, row=0, column=0, sticky="nsew")
@@ -73,14 +78,29 @@ class SettingFrame(tk.Frame):
         self.platforminfo.grid(padx=10, pady=5, row=2, column=1, sticky="nsw")
 
 
-        ## Setting Menu
+        ## Setting Menu Selector
         # Query Label
         queryLabel = tk.Label(self, text="Enter Query", font='Helvetica 14')
-        queryLabel.grid(padx=10, pady=10, row=3, column=0, sticky="nsew")
+        queryLabel.grid(padx=10, pady=5, row=3, column=0, sticky="nsew")
 
         # Query Text Field
-        queryField = tk.Entry(self,width=60)
-        queryField.grid(padx=10, pady=10, row=3, column=1, sticky="nsew")
+        self.queryField = tk.Entry(self,width=70)
+        self.queryField.bind("<Return>", lambda event : self.setQuery())
+        self.queryField.grid(padx=10, pady=5, row=3, column=1, sticky="nsew")
+
+        # Query Button
+        queryBtn = tk.Button(self, text="Set", width=12, command=self.setQuery)
+        queryBtn.grid(padx=5, pady=5, row=3, column=2, sticky="nsw")
+
+    def setQuery(self):
+        # Get Query from Text Field
+        temp = self.queryField.get()
+        self.queryField.delete(0, 'end')
+        if temp == "":
+            messagebox.showwarning("Query Warning","None Query is not allowed. Please Set a Valid Query")
+        else:
+            query = temp
+            self.queryinfo.config(text=query)
 
 
 class SampleFrame(tk.Frame):
