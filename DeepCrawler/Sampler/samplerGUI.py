@@ -86,10 +86,12 @@ class IndicatorFrame(tk.Frame):
         # Start Sampling Button
         startBtn = tk.Button(self, text="Start Sampling", width=85, height=1, padx=10, pady=10,
                               highlightbackground="grey", highlightcolor="black", highlightthickness=2,
-                             command=lambda : self.startSampling())
+                             command=lambda : self.startSampling(controller))
         startBtn.pack(side="top",expand=False,fill="both")
 
-    def startSampling(self):
+    def startSampling(self,controller):
+        global query
+        global datanum
         errmsg = ""
         iserror = False
 
@@ -104,12 +106,24 @@ class IndicatorFrame(tk.Frame):
             iserror = True
             errmsg += "\n - Please Set Platform"
 
-        # Start
+        # Start Sampling if no error
         if not iserror:
-            # TODO DO Sampling
-            pass
+            summary = "Query: {}\nDataNum: {}\nPlatform: {}".format(query,datanum,self.platformtoString())
+            continueMsg = tk.messagebox.askquestion('Sampling Warning', '{}\nAre you sure you want to start Sampling'.format(summary),icon='warning')
+            if continueMsg == 'yes':
+                controller.show_frame(SampleFrame)
+                # TODO Start Sampling
+            else:
+                pass
         else:
             messagebox.showwarning("Sampling Warning", errmsg)
+
+    def platformtoString(self):
+        result = ""
+        for key in platform.keys():
+            if platform[key] == 1:
+                result += key + " | "
+        return result
 
     def isplatformset(self):
         isready = False
