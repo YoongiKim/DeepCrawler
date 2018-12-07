@@ -55,6 +55,7 @@ class GetHTML:
         if platform == Platforms.GOOGLE:
             return "Google Not Implemented Yet"
         elif platform == Platforms.NAVER_BLOG:
+            # TODO No Such Element Exception Raised
             frame = self.browser.find_element(By.XPATH, '//iframe[@id="mainFrame"]')
 
             for i in range(60):
@@ -63,4 +64,9 @@ class GetHTML:
 
             html = self.browser.find_elements_by_tag_name('html')
             html = html[-1].get_attribute('innerHTML')
+            html = self.iframe_filter(html)
             return html
+
+    # TODO make iframe to actual html
+    def iframe_filter(self,html):
+        return html

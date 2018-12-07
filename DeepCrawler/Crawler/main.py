@@ -36,6 +36,7 @@ class CRAWLER():
         while self.progress[platform] < n_data:
             # If isCrawling is False stop
             if not self.isCrawling:
+                scraper.browser.close()
                 break
             # If no link get link and put into linkQueue
             if linkQueue.empty():
