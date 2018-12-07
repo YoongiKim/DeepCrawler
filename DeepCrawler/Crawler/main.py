@@ -1,42 +1,76 @@
-from . import collectData
-from multiprocessing import Pool
-from .platforms import Platforms
+import threading
+import time
 
 class CRAWLER():
-    def __init__(self, n_thread=4):
+    def __init__(self,n_threads=4):
         # Constant Variables
-        # TODO Change this when adding platform
-        self.validplatforms = [Platforms.GOOGLE, Platforms.NAVER_BLOG]
         # Setup Variables
         self.platform = {} # list of platforms
         self.query = "" # list of query to search
         self.n_data = 0 # number of datasets(pages) to get
-        self.n_thread = n_thread # number of threads
-                
-        # Store crawled data (number of platform,number of data for each platform)
-        self.result = {}
-        for p in self.platform:
-            self.result[p] = []
+        self.n_threads = n_threads # Number of threads when crawling
+
+        self.isCrawling = False
 
     def set(self,query,n_data,platform):
         self.platform = platform  # list of platforms
         self.query = query  # list of query to search
         self.n_data = n_data  # number of datasets(pages) to get
 
-    def download(self,task):
-        # TODO download process
-        print(task)
+    def crawling_process(self,task):
+        platform = task["platform"] # Platform
+        query = task["query"] # Query
+        n_data = task["n_data"] # Number of Data Wanted
+        current_num = 1 # Current Data Number
+
+    def crawl(self):
+        threads = []
+        task = self.generate_task()
+        # Start Task
+        for task in task:
+            t = threading.Thread(target=self.crawling_process,args=(task,))
+            threads.append(t)
+            t.start()
+
+        # Wait for all threads to complete
+        for thread in threads:
+            thread.join()
 
     # Main Run Method to activate crawler. Call this to Start Crawling
     def start(self):
-        print('Query:{}||Platform:{}||data_num:{}||thread_num:{}'.format(self.query,self.platform,self.n_data,self.n_thread))
-        # Start Crawling with MultiProcess
-        pool = Pool(self.n_thread)
-        # TODO pass proper iterable task
-        pool.map_async(self.download,[1,2,3,4])
-        pool.close()
-        pool.join()
+        assert not self.isSettingValid(), "Invalid Setting"
+        # Set isCrawling Indicator to True
+        self.isCrawling = True
+        # Do Crawling
+        self.crawl()
 
     def stop(self):
-        # TODO Stop Crawling
-        pass
+        self.isCrawling = False
+
+    def generate_task(self):
+        task = []
+        for keys in self.platform.keys():
+            if self.platform[keys] == 1:
+                task.append([{"platform":keys,
+                              "query":self.query,
+                              "n_data":self.n_data}])
+        return task
+
+    def isPlatformSet(self):
+        isready = False
+        for key in self.platform.keys():
+            if self.platform[key] == 1:
+                isready = True
+                break
+        return isready
+
+    def isSettingValid(self):
+        result = False
+        # Check for invalid setting
+        if self.query == "":
+            result = True
+        if self.n_data <= 0:
+            result = True
+        if not self.isPlatformSet():
+            result = True
+        return result

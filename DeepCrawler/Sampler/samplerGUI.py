@@ -1,5 +1,6 @@
 from tkinter import Button,messagebox
 import tkinter as tk
+import threading
 import sys, os
 sys.path.append(os.path.abspath(os.path.join('..', 'Crawler')))
 from Crawler import CRAWLER
@@ -123,7 +124,8 @@ class IndicatorFrame(tk.Frame):
                 continueMsg = tk.messagebox.askquestion('Crawling Warning', '{}\nAre you sure you want to start Crawling'.format(summary),icon='warning')
                 if continueMsg == 'yes':
                     controller.crawler.set(query,datanum,platform)
-                    # TODO Start Crawling
+                    thread = threading.Thread(target=controller.crawler.start)
+                    thread.start()
                     btn.config(text="Stop Crawling")
                     controller.iscrawling = True
                 else:
@@ -131,7 +133,7 @@ class IndicatorFrame(tk.Frame):
             else:
                 messagebox.showwarning("Crawling Warning", errmsg)
         else:
-            # TODO Stop Crawling
+            controller.crawler.stop()
             btn.config(text="Start Crawling")
             controller.iscrawling = False
 
