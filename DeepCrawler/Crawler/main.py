@@ -34,6 +34,9 @@ class CRAWLER():
 
         # If progress is smaller than number of data needed
         while self.progress[platform] < n_data:
+            # If isCrawling is False stop
+            if not self.isCrawling:
+                break
             # If no link get link and put into linkQueue
             if linkQueue.empty():
                 for link in scraper.get_post_links(
@@ -51,6 +54,8 @@ class CRAWLER():
             print("---------------{}-------------------\n{}\n----------------------------------\n".format(
                 self.progress[platform],current_html
             ))
+
+        print("Crawler Stopped")
 
     def crawl(self):
         threads = []
