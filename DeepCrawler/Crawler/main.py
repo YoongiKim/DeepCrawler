@@ -1,4 +1,7 @@
 import threading
+from .get_html import GetHTML
+from queue import Queue
+from .platforms import Platforms
 import time
 
 class CRAWLER():
@@ -11,17 +14,48 @@ class CRAWLER():
         self.n_threads = n_threads # Number of threads when crawling
 
         self.isCrawling = False
+        self.progress={}
 
     def set(self,query,n_data,platform):
         self.platform = platform  # list of platforms
         self.query = query  # list of query to search
         self.n_data = n_data  # number of datasets(pages) to get
+        for key in self.platform.keys():
+            self.progress[key] = 0 # 0 Data Collected so far fo each platform
 
     def crawling_process(self,task):
         platform = task["platform"] # Platform
         query = task["query"] # Query
         n_data = task["n_data"] # Number of Data Wanted
-        current_num = 1 # Current Data Number
+        page_num = 1
+
+        scraper = GetHTML() # Create Get HTML and configure
+        linkQueue = Queue()
+
+        # If progress is smaller than number of data needed
+        while self.progress[platform] < n_data:
+            # If isCrawling is False stop
+            if not self.isCrawling:
+                break
+            # If no link get link and put into linkQueue
+            if linkQueue.empty():
+                for link in scraper.get_post_links(
+                        Platforms.toInt(platform),query,page_num):
+                    linkQueue.put(link)
+                page_num += 1
+
+            # Get link from link Queue
+            current_link = linkQueue.get()
+            # Get Html
+            current_html = scraper.get_html(Platforms.toInt(platform),current_link)
+
+            # Done Collection Data
+            self.progress[platform] += 1
+            print("---------------{}-------------------\n{}\n----------------------------------\n".format(
+                self.progress[platform],current_html
+            ))
+
+        print("Crawler Stopped")
 
     def crawl(self):
         threads = []
@@ -51,9 +85,9 @@ class CRAWLER():
         task = []
         for keys in self.platform.keys():
             if self.platform[keys] == 1:
-                task.append([{"platform":keys,
+                task.append({"platform":keys,
                               "query":self.query,
-                              "n_data":self.n_data}])
+                              "n_data":self.n_data})
         return task
 
     def isPlatformSet(self):
