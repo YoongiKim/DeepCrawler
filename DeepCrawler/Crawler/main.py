@@ -36,6 +36,7 @@ class CRAWLER():
         while self.progress[platform] < n_data:
             # If isCrawling is False stop
             if not self.isCrawling:
+                scraper.browser.quit()
                 break
             # If no link get link and put into linkQueue
             if linkQueue.empty():
@@ -48,7 +49,7 @@ class CRAWLER():
             current_link = linkQueue.get()
             # Get Html
             current_html = scraper.get_html(Platforms.toInt(platform),current_link)
-
+            # TODO Save HTML as text
             # Done Collection Data
             self.progress[platform] += 1
             print("---------------{}-------------------\n{}\n----------------------------------\n".format(

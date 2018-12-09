@@ -55,12 +55,17 @@ class GetHTML:
         if platform == Platforms.GOOGLE:
             return "Google Not Implemented Yet"
         elif platform == Platforms.NAVER_BLOG:
-            frame = self.browser.find_element(By.XPATH, '//iframe[@id="mainFrame"]')
-
-            for i in range(60):
-                frame.send_keys(Keys.PAGE_DOWN)
-                time.sleep(0.2)
-
+            self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             html = self.browser.find_elements_by_tag_name('html')
             html = html[-1].get_attribute('innerHTML')
+            html = self.iframe_filter(html)
             return html
+
+    def isEndofPage(self):
+        result = self.browser.execute_script("if (document.body.scrollHeight == document.body.scrollTop + window.innerHeight) { return true; } else { return false; }")
+        print(result)
+        return result
+
+    # TODO make iframe to actual html
+    def iframe_filter(self,html):
+        return html
