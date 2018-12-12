@@ -70,7 +70,6 @@ class CRAWLER():
         for thread in threads:
             thread.join()
 
-    #TODO Save html as text file
     def saveFile(self,task,text):
         curr_dir = self.saving_dir+task["query"]+"/"+task["platform"]
         if not os.path.isdir(curr_dir):
