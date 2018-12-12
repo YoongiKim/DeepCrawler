@@ -2,6 +2,7 @@ import threading
 from .get_html import GetHTML
 from queue import Queue
 from .platforms import Platforms
+import json
 import os
 
 class CRAWLER():
@@ -12,6 +13,7 @@ class CRAWLER():
         self.query = "" # list of query to search
         self.n_data = 0 # number of datasets(pages) to get
         self.n_threads = n_threads # Number of threads when crawling
+        self.saving_dir = saving_dir
 
         self.isCrawling = False
         self.progress={}
@@ -49,7 +51,7 @@ class CRAWLER():
             current_link = linkQueue.get()
             # Get Html
             current_html = scraper.get_html(Platforms.toInt(platform),current_link)
-            self.saveasText(current_html)
+            self.saveFile(task,current_html)
             # Done Collection Data
             self.progress[platform] += 1
 
@@ -69,8 +71,27 @@ class CRAWLER():
             thread.join()
 
     #TODO Save html as text file
-    def saveasText(self,text):
-        pass
+    def saveFile(self,task,text):
+        curr_dir = self.saving_dir+task["query"]+"/"+task["platform"]
+        if not os.path.isdir(curr_dir):
+            os.makedirs(curr_dir)
+
+        if os.path.exists(curr_dir+"/config.json"):
+            with open(curr_dir+"/config.json") as json_file:
+                config = json.load(json_file)
+        else:
+            config = {
+                "task" : task,
+                "index" : 1
+            }
+        print(config)
+        file = open(curr_dir+"/"+str(config["index"]),"w")
+        file.write(text)
+        file.close()
+
+        config["index"] += 1
+        with open(curr_dir+"/config.json", 'w') as config_outfile:
+            json.dump(config, config_outfile)
 
     # Main Run Method to activate crawler. Call this to Start Crawling
     def start(self):
