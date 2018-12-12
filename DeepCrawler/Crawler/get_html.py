@@ -1,13 +1,11 @@
 import time
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import ElementNotVisibleException
 from urllib.parse import quote
 from .platforms import Platforms
 import platform
-import os
-import sys
+from bs4 import BeautifulSoup as BS
+import re
 
 class GetHTML:
     def __init__(self):
@@ -56,16 +54,32 @@ class GetHTML:
             return "Google Not Implemented Yet"
         elif platform == Platforms.NAVER_BLOG:
             self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            html = self.browser.find_elements_by_tag_name('html')
-            html = html[-1].get_attribute('innerHTML')
-            html = self.iframe_filter(html)
+            html = self.html_scraper()
+            cleanr = re.compile('<.*?>')
+            html = re.sub(cleanr, '', html)
             return html
 
-    def isEndofPage(self):
-        result = self.browser.execute_script("if (document.body.scrollHeight == document.body.scrollTop + window.innerHeight) { return true; } else { return false; }")
-        print(result)
-        return result
-
-    # TODO make iframe to actual html
-    def iframe_filter(self,html):
+    def html_scraper(self):
+        html = self.browser.find_elements_by_tag_name('html')
+        html = html[-1].get_attribute('innerHTML')
+        html = self.iframe_filter(html)
         return html
+
+    def iframe_filter(self,input):
+        result = None
+
+        soup = BS(input,"lxml")
+        list = soup.find_all('iframe')
+        if len(list) == 0:
+            # Return this frame's content
+            result = input
+        else:
+            # Replace with filtered content
+            # Return replaced html
+            for idx, curr_element in enumerate(list):
+                self.browser.switch_to.frame(idx)
+                temp = self.html_scraper()
+                curr_element.replaceWith(temp)
+                self.browser.switch_to.parent_frame()
+            result = str(soup)
+        return result

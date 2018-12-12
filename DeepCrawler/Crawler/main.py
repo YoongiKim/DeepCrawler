@@ -2,10 +2,10 @@ import threading
 from .get_html import GetHTML
 from queue import Queue
 from .platforms import Platforms
-import time
+import os
 
 class CRAWLER():
-    def __init__(self,n_threads=4):
+    def __init__(self,n_threads=4,saving_dir="./Results/"):
         # Constant Variables
         # Setup Variables
         self.platform = {} # list of platforms
@@ -49,12 +49,9 @@ class CRAWLER():
             current_link = linkQueue.get()
             # Get Html
             current_html = scraper.get_html(Platforms.toInt(platform),current_link)
-            # TODO Save HTML as text
+            self.saveasText(current_html)
             # Done Collection Data
             self.progress[platform] += 1
-            print("---------------{}-------------------\n{}\n----------------------------------\n".format(
-                self.progress[platform],current_html
-            ))
 
         print("Crawler Stopped")
 
@@ -70,6 +67,10 @@ class CRAWLER():
         # Wait for all threads to complete
         for thread in threads:
             thread.join()
+
+    #TODO Save html as text file
+    def saveasText(self,text):
+        pass
 
     # Main Run Method to activate crawler. Call this to Start Crawling
     def start(self):
